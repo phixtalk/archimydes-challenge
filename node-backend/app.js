@@ -1,6 +1,8 @@
 var createError = require("http-errors");
 var express = require("express");
-var cors = require('cors');
+var cors = require("cors");
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerUI = require("swagger-ui-express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
@@ -19,6 +21,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+const swaggerOptions = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Archimydes Challenge API Documentation",
+      version: "1.0.0",
+    },
+  },
+  apis: ["./docs/**/*.yaml"],
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+console.log(swaggerDocs);
+
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 app.use("/users", usersRouter);
 
