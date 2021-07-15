@@ -33,7 +33,7 @@ if server successfully starts, you should see the output below in your terminal
 
 - #### Architecture Pattern
 
-      MVVM / Repository pattern was used in the architecture of the nodejs application. This pattern emphasizes seperation of concerns and single responsibility design pattern. For example, the controllers delegates tasks to the services, and the services accesses data via the data-access layer. So incase we wish to substitute one data storage for another, it's only a matter of swapping out the data access functions with the a new one that returns data in the same format.
+  MVVM / Repository pattern was used in the architecture of the nodejs application. This pattern emphasizes seperation of concerns and single responsibility design pattern. For example, the controllers delegates tasks to the services, and the services accesses data via the data-access layer. So incase we wish to substitute one data storage for another, it's only a matter of swapping out the data access functions with the a new one that returns data in the same format.
 
 - #### Unit Testing
 
