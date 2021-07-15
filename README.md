@@ -87,7 +87,7 @@ The Swagger library was used to document api routes, requests and responses. See
 - npm install
 - npm run start
 
-if application starts successfully, default browser will be lauched and a list of lists will be displayed in a table
+if application starts successfully, default browser will be lauched and a list of users will be displayed in a table
 
 - #### Architecture Pattern
 
