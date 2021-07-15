@@ -15,13 +15,13 @@ paths:
       tags:
         - User
       summary: creates a new user
-      produces:
-        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
       parameters:
-        - in: body
-          name: Create User
+        - in: formData
+          name: name
           description: It enables you create a new user. All fields are required.
-          required: false
+          required: true
           schema:
             $ref: "#/definitions/createUser"
       responses:
@@ -31,6 +31,7 @@ paths:
           description: Bad request parameters. Returns an object with status, message data properties
         500:
           description: Error Creating new User. Returns object with status, message data properties
+  /users/{user_id}:
     put:
       tags:
         - User

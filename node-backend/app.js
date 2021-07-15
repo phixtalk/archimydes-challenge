@@ -9,6 +9,7 @@ var logger = require("morgan");
 
 var usersRouter = require("./api/routes/users");
 const { response } = require("./api/middlewares/utils/response");
+//const bodyParser = require("body-parser");
 
 var app = express();
 app.use(cors());
@@ -19,6 +20,8 @@ app.set("view engine", "jade");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+//app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -30,11 +33,12 @@ const swaggerOptions = {
       version: "1.0.0",
     },
   },
+  // apis: ["./api/routes/*.js"],
   apis: ["./docs/**/*.yaml"],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
-console.log(swaggerDocs);
+//console.log(swaggerDocs);
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
